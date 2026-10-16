@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Repositori Dokumen Kurikulum Akademik - IT-PLN</title>
+
+    <!-- Google Fonts: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Montserrat", "sans-serif"],
+            },
+            colors: {
+              brand: {
+                blue: "#0e5a6a",
+                dark: "#083844",
+                yellow: "#fdb813",
+                light: "#f0f7f8",
+              },
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      .accordion-content {
+        transition:
+          max-height 0.3s ease-in-out,
+          opacity 0.3s ease-in-out;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+      }
+      .accordion-content.open {
+        max-height: 1000px;
+        opacity: 1;
+      }
+      .highlight {
+        background-color: #fef08a;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gray-50 text-gray-800 antialiased min-h-screen flex flex-col font-sans"
+  >
+    <!-- 1. HEADER & NAVBAR -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+          <!-- Logo -->
+          <a href="index.html" class="flex items-center cursor-pointer group">
+            <img
+              src="assets/img/LOGO_IT_PLN.png"
+              alt="Logo IT-PLN"
+              class="h-12 w-auto object-contain transition-transform group-hover:scale-105"
+            />
+          </a>
+
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex items-center space-x-6">
+            <nav class="flex items-center space-x-6">
+              <a
+                href="index.html"
+                class="text-gray-600 hover:text-brand-blue font-semibold transition-colors"
+                >Profil</a
+              >
+              <a
+                href="dokumen.html"
+                class="text-brand-blue border-b-2 border-brand-blue font-bold pb-1"
+                >Dokumen</a
+              >
+
+              <!-- Dropdown Menu "Informasi" -->
+              <div class="relative group">
+                <button
+                  class="flex items-center gap-1 text-gray-600 hover:text-brand-blue font-semibold transition-colors py-2 focus:outline-none"
+                >
+                  Informasi
+                  <svg
+                    class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </button>
+                <div
+                  class="absolute left-0 mt-0 w-52 bg-white rounded-xl shadow-xl border border-gray-100 py-1.5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 transform origin-top-left group-hover:translate-y-1"
+                >
+                  <a
+                    href="informasi.html"
+                    class="block px-4 py-2.5 text-sm font-semibold text-gray-700 hover:bg-teal-50 hover:text-brand-blue transition-colors"
+                  >
+                    Pengumuman & Berita
+                  </a>
+                  <a
+                    href="panduan.html"
+                    class="block px-4 py-2.5 text-sm font-semibold text-gray-700 hover:bg-teal-50 hover:text-brand-blue transition-colors"
+                  >
+                    Panduan Akademik
+                  </a>
+                  <a
+                    href="faq.html"
+                    class="block px-4 py-2.5 text-sm font-semibold text-gray-700 hover:bg-teal-50 hover:text-brand-blue transition-colors"
+                  >
+                    FAQ & Layanan
+                  </a>
+                </div>
+              </div>
+
+              <!-- Dropdown Menu "Eksplorasi" -->
+              <div class="relative group">
+                <button
+                  class="flex items-center gap-1 text-gray-600 hover:text-brand-blue font-semibold transition-colors py-2 focus:outline-none"
+                >
+                  Eksplorasi
+                  <svg
+                    class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </button>
+                <div
+                  class="absolute left-0 mt-0 w-56 bg-white rounded-xl shadow-xl border border-gray-100 py-1.5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 transform origin-top-left group-hover:translate-y-1"
+                >
+                  <a
+                    href="detail.html?slug=sejarah-kurikulum"
+                    class="block px-4 py-2.5 text-sm font-semibold text-gray-700 hover:bg-teal-50 hover:text-brand-blue transition-colors flex items-center justify-between"
+                  >
+                    <span>Sejarah Kurikulum</span>
+                    <span
+                      class="text-[10px] px-1.5 py-0.5 bg-teal-100 text-teal-800 rounded font-bold"
+                      >Dinamis</span
+                    >
+                  </a>
+                  <a
+                    href="detail.html?slug=akreditasi-internasional"
+                    class="block px-4 py-2.5 text-sm font-semibold text-gray-700 hover:bg-teal-50 hover:text-brand-blue transition-colors flex items-center justify-between"
+                  >
+                    <span>Akreditasi Internasional</span>
+                    <span
+                      class="text-[10px] px-1.5 py-0.5 bg-teal-100 text-teal-800 rounded font-bold"
+                      >Dinamis</span
+                    >
+                  </a>
+                  <a
+                    href="detail.html?slug=kemitraan-industri-energi"
+                    class="block px-4 py-2.5 text-sm font-semibold text-gray-700 hover:bg-teal-50 hover:text-brand-blue transition-colors flex items-center justify-between"
+                  >
+                    <span>Kemitraan Industri</span>
+                    <span
+                      class="text-[10px] px-1.5 py-0.5 bg-teal-100 text-teal-800 rounded font-bold"
+                      >Dinamis</span
+                    >
+                  </a>
+                </div>
+              </div>
+            </nav>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <div class="md:hidden flex items-center">
+            <button
+              id="mobileMenuBtn"
+              class="text-gray-600 hover:text-brand-blue focus:outline-none"
+            >
+              <svg
+                class="w-7 h-7"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Dropdown -->
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden bg-white border-t border-gray-100 px-4 pt-2 pb-4 space-y-2 shadow-lg"
+      >
+        <a
+          href="index.html"
+          class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-blue hover:bg-gray-50 rounded-md"
+          >Profil</a
+        >
+        <a
+          href="dokumen.html"
+          class="block px-3 py-2 text-base font-bold text-brand-blue bg-teal-50 rounded-md"
+          >Dokumen</a
+        >
+        <div class="pl-3 pr-2 py-2 bg-gray-50 rounded-lg space-y-1">
+          <span
+            class="text-xs font-bold text-brand-blue uppercase tracking-wider block"
+            >Informasi</span
+          >
+          <a
+            href="informasi.html"
+            class="block px-2 py-1 text-sm font-medium text-gray-700 hover:text-brand-blue"
+            >Pengumuman & Berita</a
+          >
+          <a
+            href="panduan.html"
+            class="block px-2 py-1 text-sm font-medium text-gray-700 hover:text-brand-blue"
+            >Panduan Akademik</a
+          >
+          <a
+            href="faq.html"
+            class="block px-2 py-1 text-sm font-medium text-gray-700 hover:text-brand-blue"
+            >FAQ & Layanan</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- 2. HERO SECTION WITH MODERN LIBRARY REPOSITORY BG IMAGE -->
+    <section
+      class="relative bg-brand-dark py-24 lg:py-32 overflow-hidden bg-cover bg-center"
+      style="
+        background-image:
+          linear-gradient(
+            to right,
+            rgba(8, 56, 68, 0.9),
+            rgba(14, 90, 106, 0.85)
+          ),
+          url(&quot;https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=1920&auto=format&fit=crop&quot;);
+      "
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center"
+      >
+        <h1
+          class="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-4 leading-tight drop-shadow-md"
+        >
+          Repositori Dokumen Kurikulum Akademik
+        </h1>
+        <p
+          class="mt-4 text-base md:text-xl text-teal-100 max-w-3xl mx-auto font-medium leading-relaxed drop-shadow-sm"
+        >
+          Pusat informasi resmi untuk mahasiswa dan dosen. Akses dokumen
+          kurikulum, MBKM, dan panduan akademik secara transparan.
+        </p>
+      </div>
+    </section>
+
+    <!-- 3. MAIN CONTENT (SEARCH & CATEGORY FILTERS: KURIKULUM, MBKM, UMUM) -->
+    <main class="flex-grow max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
+      <!-- Search Input & Category Filter Buttons -->
+      <div
+        class="relative -mt-20 z-20 mb-8 shadow-xl rounded-2xl bg-white p-4 border border-gray-100 space-y-4"
+      >
+        <div class="relative flex items-center">
+          <div
+            class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none"
+          >
+            <svg
+              class="h-6 w-6 text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              ></path>
+            </svg>
+          </div>
+          <input
+            type="text"
+            id="searchInput"
+            class="block w-full pl-12 pr-4 py-3.5 rounded-xl border-none ring-1 ring-gray-200 focus:ring-2 focus:ring-brand-blue text-base md:text-lg text-gray-900 placeholder-gray-400 outline-none"
+            placeholder="Cari dokumen kurikulum, MBKM, atau umum..."
+            autocomplete="off"
+          />
+        </div>
+
+        <!-- Filter Buttons (Strictly: Semua, Kurikulum, MBKM, Umum) -->
+        <div
+          class="flex flex-wrap items-center gap-2 pt-1 border-t border-gray-100"
+        >
+          <span
+            class="text-xs font-bold text-gray-500 uppercase tracking-wider mr-2"
+            >Filter Kategori:</span
+          >
+          <button
+            onclick="filterCategory('all')"
+            id="catBtn-all"
+            class="cat-btn active px-4 py-1.5 rounded-full text-xs font-bold transition-all bg-brand-blue text-white shadow-xs"
+          >
+            Semua Dokumen
+          </button>
+          <button
+            onclick="filterCategory('Kurikulum')"
+            id="catBtn-Kurikulum"
+            class="cat-btn px-4 py-1.5 rounded-full text-xs font-bold transition-all bg-gray-100 text-gray-700 hover:bg-teal-50 hover:text-brand-blue"
+          >
+            Kurikulum
+          </button>
+          <button
+            onclick="filterCategory('MBKM')"
+            id="catBtn-MBKM"
+            class="cat-btn px-4 py-1.5 rounded-full text-xs font-bold transition-all bg-gray-100 text-gray-700 hover:bg-teal-50 hover:text-brand-blue"
+          >
+            MBKM
+          </button>
+          <button
+            onclick="filterCategory('Umum')"
+            id="catBtn-Umum"
+            class="cat-btn px-4 py-1.5 rounded-full text-xs font-bold transition-all bg-gray-100 text-gray-700 hover:bg-teal-50 hover:text-brand-blue"
+          >
+            Umum
+          </button>
+        </div>
+      </div>
+
+      <!-- Empty State Message -->
+      <div
+        id="noResults"
+        class="hidden text-center py-12 bg-white rounded-xl shadow-sm border border-gray-100"
+      >
+        <svg
+          class="mx-auto h-12 w-12 text-gray-300 mb-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+          ></path>
+        </svg>
+        <h3 class="text-lg font-bold text-gray-900">Dokumen tidak ditemukan</h3>
+        <p class="mt-1 text-gray-500">
+          Coba gunakan kata kunci lain atau pilih kategori Kurikulum, MBKM, atau
+          Umum.
+        </p>
+      </div>
+
+      <!-- ACCORDION CONTAINER -->
+      <div id="repositoryContainer" class="space-y-4">
+        <!-- Dynamic accordion cards -->
+      </div>
+    </main>
+
+    <!-- 4. FOOTER -->
+    <footer class="bg-[#0e5a6a] text-white pt-14 pb-0 mt-auto relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
+          <!-- Column 1: Identity -->
+          <div class="md:col-span-5 flex flex-col space-y-4">
+            <div class="flex items-center gap-3">
+              <img
+                src="assets/img/LOGO_IT_PLN.png"
+                alt="Logo IT-PLN"
+                class="h-10 w-auto bg-white p-1 rounded shadow-sm"
+              />
+              <span
+                class="font-extrabold text-xl text-white tracking-tight leading-tight"
+              >
+                BPAK – ITPLN
+              </span>
+            </div>
+            <p class="text-sm text-teal-100/90 leading-relaxed font-medium">
+              Bagian Pengembangan Akademik<br />
+              Lantai Mezzanine Lobi Selatan
+            </p>
+          </div>
+
+          <!-- Column 2: Menu Utama -->
+          <div class="md:col-span-3 flex flex-col space-y-4">
+            <h4 class="text-white text-lg font-bold">Menu Utama</h4>
+            <div
+              class="flex flex-col space-y-2.5 text-sm text-teal-100/90 font-medium"
+            >
+              <a
+                href="dokumen.html"
+                class="hover:text-yellow-300 transition-colors flex items-center gap-1.5"
+              >
+                <span class="text-yellow-400 font-bold">›</span> Dokumen
+              </a>
+              <a
+                href="index.html"
+                class="hover:text-yellow-300 transition-colors flex items-center gap-1.5"
+              >
+                <span class="text-yellow-400 font-bold">›</span> Profil
+              </a>
+              <a
+                href="informasi.html"
+                class="hover:text-yellow-300 transition-colors flex items-center gap-1.5"
+              >
+                <span class="text-yellow-400 font-bold">›</span> Pengumuman &
+                Berita
+              </a>
+              <a
+                href="panduan.html"
+                class="hover:text-yellow-300 transition-colors flex items-center gap-1.5"
+              >
+                <span class="text-yellow-400 font-bold">›</span> Panduan
+                Akademik
+              </a>
+              <a
+                href="faq.html"
+                class="hover:text-yellow-300 transition-colors flex items-center gap-1.5"
+              >
+                <span class="text-yellow-400 font-bold">›</span> FAQ & Layanan
+              </a>
+            </div>
+          </div>
+
+          <!-- Column 3: Kontak -->
+          <div class="md:col-span-4 flex flex-col space-y-4">
+            <h4 class="text-white text-lg font-bold">Kontak Layanan</h4>
+            <div class="space-y-3 text-sm text-teal-100/90 font-medium">
+              <div class="flex items-start gap-3">
+                <svg
+                  class="w-5 h-5 text-yellow-400 shrink-0 mt-0.5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                  ></path>
+                </svg>
+                <span class="leading-snug"
+                  >Menara PLN, Jl. Lkr. Luar Barat, Cengkareng, Jakarta Barat
+                  11750</span
+                >
+              </div>
+              <div class="flex items-center gap-3">
+                <svg
+                  class="w-5 h-5 text-yellow-400 shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  ></path>
+                </svg>
+                <a
+                  href="mailto:bpak@itpln.ac.id"
+                  class="hover:text-yellow-300 transition-colors"
+                  >bpak@itpln.ac.id</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright Bar -->
+      <div
+        class="bg-[#083844] py-4 text-center text-xs text-teal-200/80 font-medium border-t border-teal-800/50"
+      >
+        <p>
+          © 2026 Bagian Pengembangan Akademik IT-PLN. Hak Cipta Dilindungi
+          Undang-Undang.
+        </p>
+      </div>
+    </footer>
+
+    <!-- JAVASCRIPT REPOSITORY LOGIC (STRICTLY KURIKULUM, MBKM, UMUM) -->
+    <script>
+      const repositoryData = [
+        {
+          id: "kurikulum",
+          categoryName: "Kurikulum",
+          description:
+            "Buku pedoman kurikulum berbasis OBE, struktur mata kuliah, dan Rencana Pembelajaran Semester (RPS)",
+          documents: [
+            {
+              title: "Pedoman Kurikulum OBE 2026",
+              type: "PDF",
+              year: "2026/2027",
+              author: "Tim Kurikulum",
+              desc: "Panduan penerapan Outcome-Based Education pada seluruh prodi IT-PLN.",
+            },
+            {
+              title: "Buku Struktur Kurikulum Sarjana 2026",
+              type: "PDF",
+              year: "2026/2027",
+              author: "Bagian Pengembangan Akademik",
+              desc: "Daftar susunan mata kuliah wajib dan pilihan per semester.",
+            },
+            {
+              title: "Rencana Pembelajaran Semester (RPS) Matakuliah Inti",
+              type: "DOCX",
+              year: "2026/2027",
+              author: "Sub-Divisi Kurikulum",
+              desc: "Template dan contoh penyusunan RPS terstandar.",
+            },
+          ],
+        },
+        {
+          id: "mbkm",
+          categoryName: "MBKM",
+          description:
+            "Panduan program Merdeka Belajar Kampus Merdeka, magang industri, dan konversi SKS",
+          documents: [
+            {
+              title: "Panduan MBKM Mandiri & Magang Industri 2026",
+              type: "PDF",
+              year: "2026/2027",
+              author: "Admin MBKM",
+              desc: "Petunjuk teknis pendaftaran dan pelaksanaan magang industri.",
+            },
+            {
+              title: "Juknis Ekuivalensi WRAP MBKM",
+              type: "PDF",
+              year: "2026/2027",
+              author: "Bagian Pengembangan Akademik",
+              desc: "Aturan penyetaraan bobot SKS kegiatan luar kampus.",
+            },
+            {
+              title: "Formulir Konversi SKS Kegiatan MBKM",
+              type: "DOCX",
+              year: "2026/2027",
+              author: "Staf Akademik",
+              desc: "Form permohonan klaim konversi nilai matakuliah.",
+            },
+          ],
+        },
+        {
+          id: "umum",
+          categoryName: "Umum",
+          description:
+            "Pedoman umum tugas akhir, kalender akademik, dan peraturan akademik universitas",
+          documents: [
+            {
+              title: "Pedoman Penulisan Tugas Akhir Edisi V",
+              type: "PDF",
+              year: "2026/2027",
+              author: "Tim Akademik",
+              desc: "Standar format penulisan skripsi dan laporan tugas akhir.",
+            },
+            {
+              title: "Kalender Akademik Tahun 2026/2027",
+              type: "PDF",
+              year: "2026/2027",
+              author: "Bagian Pengembangan Akademik",
+              desc: "Jadwal kegiatan perkuliahan, UTS, UAS, dan registrasi.",
+            },
+            {
+              title: "SK Rektor Layanan Akademik Universiter",
+              type: "PDF",
+              year: "2025/2026",
+              author: "Sekretariat Rektorat",
+              desc: "Surat keputusan acuan hak dan kewajiban akademis.",
+            },
+          ],
+        },
+      ];
+
+      let selectedCategory = "all";
+
+      document.addEventListener("DOMContentLoaded", () => {
+        renderRepository();
+        setupSearch();
+        setupMobileMenu();
+      });
+
+      function renderRepository() {
+        const container = document.getElementById("repositoryContainer");
+        const searchVal = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+        let html = "";
+        let totalMatched = 0;
+
+        repositoryData.forEach((group, index) => {
+          if (
+            selectedCategory !== "all" &&
+            group.categoryName !== selectedCategory
+          ) {
+            return;
+          }
+
+          const matchedDocs = group.documents.filter((doc) => {
+            return (
+              doc.title.toLowerCase().includes(searchVal) ||
+              doc.desc.toLowerCase().includes(searchVal) ||
+              doc.author.toLowerCase().includes(searchVal)
+            );
+          });
+
+          if (matchedDocs.length > 0) {
+            totalMatched += matchedDocs.length;
+            const isOpen = index === 0 || searchVal.length > 0;
+
+            html += `
+              <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden transition-all">
+                <button
+                  onclick="toggleAccordion('${group.id}')"
+                  class="w-full px-6 py-5 flex items-center justify-between text-left bg-white hover:bg-gray-50/80 transition-colors focus:outline-none"
+                >
+                  <div class="flex items-center gap-3">
+                    <span class="w-3 h-3 rounded-full ${group.categoryName === "Kurikulum" ? "bg-brand-blue" : group.categoryName === "MBKM" ? "bg-brand-yellow" : "bg-emerald-500"}"></span>
+                    <div>
+                      <h3 class="text-lg font-extrabold text-brand-dark">${group.categoryName}</h3>
+                      <p class="text-xs text-gray-500 font-medium">${group.description}</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <span class="px-2.5 py-1 text-xs font-bold rounded-full bg-teal-50 text-brand-blue border border-teal-100">${matchedDocs.length} Dokumen</span>
+                    <svg id="icon-${group.id}" class="w-5 h-5 text-gray-400 transform transition-transform duration-200 ${isOpen ? "rotate-180" : ""}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </div>
+                </button>
+
+                <div id="content-${group.id}" class="accordion-content ${isOpen ? "open" : ""}">
+                  <div class="px-6 pb-6 pt-2 space-y-3 border-t border-gray-100">
+                    ${matchedDocs
+                      .map(
+                        (doc) => `
+                      <div class="p-4 rounded-xl bg-gray-50/80 hover:bg-teal-50/40 border border-gray-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 transition-colors">
+                        <div class="flex-1">
+                          <div class="flex items-center gap-2 mb-1">
+                            <span class="px-2 py-0.5 text-[10px] font-extrabold rounded ${doc.type === "PDF" ? "bg-red-100 text-red-700" : "bg-blue-100 text-blue-700"}">${doc.type}</span>
+                            <span class="text-xs text-gray-400 font-medium">${doc.year} • ${doc.author}</span>
+                          </div>
+                          <h4 class="font-bold text-gray-900 text-base">${highlightText(doc.title, searchVal)}</h4>
+                          <p class="text-xs text-gray-600 mt-0.5">${highlightText(doc.desc, searchVal)}</p>
+                        </div>
+                        <a href="detail.html?doc=${encodeURIComponent(doc.title)}" class="px-4 py-2 bg-brand-blue text-white text-xs font-bold rounded-lg hover:bg-brand-dark transition-colors shadow-xs shrink-0 flex items-center gap-1.5">
+                          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                          Unduh Berkasa
+                        </a>
+                      </div>
+                    `,
+                      )
+                      .join("")}
+                  </div>
+                </div>
+              </div>
+            `;
+          }
+        });
+
+        container.innerHTML = html;
+        const noResults = document.getElementById("noResults");
+        if (totalMatched === 0) {
+          noResults.classList.remove("hidden");
+        } else {
+          noResults.classList.add("hidden");
+        }
+      }
+
+      function toggleAccordion(id) {
+        const content = document.getElementById(`content-${id}`);
+        const icon = document.getElementById(`icon-${id}`);
+        if (content.classList.contains("open")) {
+          content.classList.remove("open");
+          icon.classList.remove("rotate-180");
+        } else {
+          content.classList.add("open");
+          icon.classList.add("rotate-180");
+        }
+      }
+
+      function filterCategory(cat) {
+        selectedCategory = cat;
+        document.querySelectorAll(".cat-btn").forEach((btn) => {
+          btn.className =
+            "cat-btn px-4 py-1.5 rounded-full text-xs font-bold transition-all bg-gray-100 text-gray-700 hover:bg-teal-50 hover:text-brand-blue";
+        });
+        const activeBtn = document.getElementById(`catBtn-${cat}`);
+        if (activeBtn) {
+          activeBtn.className =
+            "cat-btn active px-4 py-1.5 rounded-full text-xs font-bold transition-all bg-brand-blue text-white shadow-xs";
+        }
+        renderRepository();
+      }
+
+      function setupSearch() {
+        document
+          .getElementById("searchInput")
+          .addEventListener("input", renderRepository);
+      }
+
+      function highlightText(text, search) {
+        if (!search) return text;
+        const regex = new RegExp(`(${search})`, "gi");
+        return text.replace(regex, '<span class="highlight">$1</span>');
+      }
+
+      function setupMobileMenu() {
+        const btn = document.getElementById("mobileMenuBtn");
+        const menu = document.getElementById("mobileMenu");
+        if (btn && menu) {
+          btn.addEventListener("click", () => menu.classList.toggle("hidden"));
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,782 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bagian Pengembangan Akademik - IT-PLN</title>
+
+    <!-- Google Fonts: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Montserrat", "sans-serif"],
+            },
+            colors: {
+              brand: {
+                blue: "#0e5a6a",
+                dark: "#083844",
+                yellow: "#fdb813",
+                light: "#f0f7f8",
+              },
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-gray-50 text-gray-800 antialiased min-h-screen flex flex-col font-sans"
+  >
+    <!-- 1. HEADER & NAVBAR -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+          <!-- Logo -->
+          <a href="index.html" class="flex items-center cursor-pointer group">
+            <img
+              src="assets/img/LOGO_IT_PLN.png"
+              alt="Logo IT-PLN"
+              class="h-12 w-auto object-contain transition-transform group-hover:scale-105"
+            />
+          </a>
+
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex items-center space-x-6">
+            <nav class="flex items-center space-x-6">
+              <a
+                href="index.html"
+                class="text-brand-blue border-b-2 border-brand-blue font-bold pb-1"
+                >Profil</a
+              >
+              <a
+                href="dokumen.html"
+                class="text-gray-600 hover:text-brand-blue font-semibold transition-colors"
+                >Dokumen</a
+              >
+
+              <!-- Dropdown Menu "Informasi" -->
+              <div class="relative group">
+                <button
+                  class="flex items-center gap-1 text-gray-600 hover:text-brand-blue font-semibold transition-colors py-2 focus:outline-none"
+                >
+                  Informasi
+                  <svg
+                    class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </button>
+                <div
+                  class="absolute left-0 mt-0 w-52 bg-white rounded-xl shadow-xl border border-gray-100 py-1.5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 transform origin-top-left group-hover:translate-y-1"
+                >
+                  <a
+                    href="informasi.html"
+                    class="block px-4 py-2.5 text-sm font-semibold text-gray-700 hover:bg-teal-50 hover:text-brand-blue transition-colors"
+                  >
+                    Pengumuman & Berita
+                  </a>
+                  <a
+                    href="panduan.html"
+                    class="block px-4 py-2.5 text-sm font-semibold text-gray-700 hover:bg-teal-50 hover:text-brand-blue transition-colors"
+                  >
+                    Panduan Akademik
+                  </a>
+                  <a
+                    href="faq.html"
+                    class="block px-4 py-2.5 text-sm font-semibold text-gray-700 hover:bg-teal-50 hover:text-brand-blue transition-colors"
+                  >
+                    FAQ & Layanan
+                  </a>
+                </div>
+              </div>
+
+              <!-- Dropdown Menu "Eksplorasi" -->
+              <div class="relative group">
+                <button
+                  class="flex items-center gap-1 text-gray-600 hover:text-brand-blue font-semibold transition-colors py-2 focus:outline-none"
+                >
+                  Eksplorasi
+                  <svg
+                    class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </button>
+                <div
+                  class="absolute left-0 mt-0 w-56 bg-white rounded-xl shadow-xl border border-gray-100 py-1.5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 transform origin-top-left group-hover:translate-y-1"
+                >
+                  <a
+                    href="detail.html?slug=sejarah-kurikulum"
+                    class="block px-4 py-2.5 text-sm font-semibold text-gray-700 hover:bg-teal-50 hover:text-brand-blue transition-colors flex items-center justify-between"
+                  >
+                    <span>Sejarah Kurikulum</span>
+                    <span
+                      class="text-[10px] px-1.5 py-0.5 bg-teal-100 text-teal-800 rounded font-bold"
+                      >Dinamis</span
+                    >
+                  </a>
+                  <a
+                    href="detail.html?slug=akreditasi-internasional"
+                    class="block px-4 py-2.5 text-sm font-semibold text-gray-700 hover:bg-teal-50 hover:text-brand-blue transition-colors flex items-center justify-between"
+                  >
+                    <span>Akreditasi Internasional</span>
+                    <span
+                      class="text-[10px] px-1.5 py-0.5 bg-teal-100 text-teal-800 rounded font-bold"
+                      >Dinamis</span
+                    >
+                  </a>
+                  <a
+                    href="detail.html?slug=kemitraan-industri-energi"
+                    class="block px-4 py-2.5 text-sm font-semibold text-gray-700 hover:bg-teal-50 hover:text-brand-blue transition-colors flex items-center justify-between"
+                  >
+                    <span>Kemitraan Industri</span>
+                    <span
+                      class="text-[10px] px-1.5 py-0.5 bg-teal-100 text-teal-800 rounded font-bold"
+                      >Dinamis</span
+                    >
+                  </a>
+                </div>
+              </div>
+            </nav>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <div class="md:hidden flex items-center">
+            <button
+              id="mobileMenuBtn"
+              class="text-gray-600 hover:text-brand-blue focus:outline-none"
+            >
+              <svg
+                class="w-7 h-7"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Dropdown -->
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden bg-white border-t border-gray-100 px-4 pt-2 pb-4 space-y-2 shadow-lg"
+      >
+        <a
+          href="index.html"
+          class="block px-3 py-2 text-base font-bold text-brand-blue bg-teal-50 rounded-md"
+          >Profil</a
+        >
+        <a
+          href="dokumen.html"
+          class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-blue hover:bg-gray-50 rounded-md"
+          >Dokumen</a
+        >
+        <div class="pl-3 pr-2 py-2 bg-gray-50 rounded-lg space-y-1">
+          <span
+            class="text-xs font-bold text-brand-blue uppercase tracking-wider block"
+            >Informasi</span
+          >
+          <a
+            href="informasi.html"
+            class="block px-2 py-1 text-sm font-medium text-gray-700 hover:text-brand-blue"
+            >Pengumuman & Berita</a
+          >
+          <a
+            href="panduan.html"
+            class="block px-2 py-1 text-sm font-medium text-gray-700 hover:text-brand-blue"
+            >Panduan Akademik</a
+          >
+          <a
+            href="faq.html"
+            class="block px-2 py-1 text-sm font-medium text-gray-700 hover:text-brand-blue"
+            >FAQ & Layanan</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- 2. HERO SECTION WITH DRONE CAMPUS BG IMAGE -->
+    <section
+      class="relative bg-brand-dark py-24 lg:py-32 overflow-hidden bg-cover bg-center"
+      style="
+        background-image:
+          linear-gradient(
+            to right,
+            rgba(8, 56, 68, 0.88),
+            rgba(14, 90, 106, 0.82)
+          ),
+          url(&quot;https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1920&auto=format&fit=crop&quot;);
+      "
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10"
+      >
+        <h1
+          class="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight drop-shadow-md"
+        >
+          Bagian Pengembangan Akademik
+        </h1>
+        <p
+          class="mt-4 text-base md:text-xl text-teal-100 max-w-3xl mx-auto font-medium leading-relaxed drop-shadow-sm"
+        >
+          Mengembangkan dan mengawal mutu kurikulum pendidikan tinggi yang
+          adaptif, inovatif, dan berstandar internasional di Institut Teknologi
+          PLN.
+        </p>
+      </div>
+    </section>
+
+    <!-- 3. CONTENT SECTION: VISI & MISI + STRUKTUR ORGANISASI -->
+    <main class="flex-grow">
+      <!-- VISI & MISI -->
+      <section class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+            <!-- Visi Card -->
+            <div
+              class="bg-white p-8 rounded-2xl shadow-sm border border-gray-200 hover:shadow-md transition-shadow"
+            >
+              <div
+                class="w-12 h-12 bg-blue-50 text-brand-blue rounded-xl flex items-center justify-center mb-6"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                  ></path>
+                </svg>
+              </div>
+              <h2 class="text-2xl font-bold text-brand-dark mb-4">Visi Kami</h2>
+              <p class="text-gray-600 leading-relaxed">
+                Menjadi pusat pengembangan kurikulum pendidikan tinggi yang
+                adaptif, inovatif, dan bereputasi internasional dalam mendukung
+                terciptanya ekosistem akademik yang bermutu tinggi pada tahun
+                2030.
+              </p>
+            </div>
+
+            <!-- Misi Card -->
+            <div
+              class="bg-white p-8 rounded-2xl shadow-sm border border-gray-200 hover:shadow-md transition-shadow"
+            >
+              <div
+                class="w-12 h-12 bg-yellow-50 text-yellow-600 rounded-xl flex items-center justify-center mb-6"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                  ></path>
+                </svg>
+              </div>
+              <h2 class="text-2xl font-bold text-brand-dark mb-4">Misi Kami</h2>
+              <ul
+                class="text-gray-600 leading-relaxed space-y-3 list-disc pl-5"
+              >
+                <li>
+                  Merumuskan kebijakan standar kurikulum berstandar
+                  internasional (OBE).
+                </li>
+                <li>
+                  Mengawal implementasi Merdeka Belajar Kampus Merdeka (MBKM).
+                </li>
+                <li>
+                  Mendampingi program studi dalam evaluasi dan pemutakhiran
+                  Rencana Pembelajaran.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- STRUKTUR ORGANISASI (RED SHIELD CREST CARD DESIGN - 3 MEMBERS) -->
+          <div class="mt-20">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+              <h2
+                class="text-3xl sm:text-4xl font-extrabold text-brand-dark tracking-tight"
+              >
+                Struktur Organisasi Divisi Kurikulum
+              </h2>
+              <p class="text-gray-500 text-sm md:text-base mt-2 font-medium">
+                Pimpinan Bagian Pengembangan Akademik Institut Teknologi PLN.
+              </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto flex flex-col items-center">
+              <!-- TOP TIER: MANAGER (CENTERED CARD) -->
+              <div class="w-full max-w-xs mb-10">
+                <div
+                  class="bg-white rounded-3xl border border-gray-100 shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
+                >
+                  <!-- Photo Area with Red U-Shield Crest -->
+                  <div
+                    class="relative h-72 bg-gradient-to-b from-gray-50 to-gray-100 flex items-end justify-center overflow-hidden pt-4"
+                  >
+                    <!-- Red U-Shield Crest SVG -->
+                    <div
+                      class="absolute inset-0 flex items-center justify-center p-2 opacity-95"
+                    >
+                      <svg
+                        viewBox="0 0 100 120"
+                        class="h-60 w-auto text-red-700 shrink-0"
+                      >
+                        <defs>
+                          <linearGradient
+                            id="shieldGradTop"
+                            x1="0%"
+                            y1="0%"
+                            x2="0%"
+                            y2="100%"
+                          >
+                            <stop offset="0%" stop-color="#ef4444" />
+                            <stop offset="50%" stop-color="#dc2626" />
+                            <stop offset="100%" stop-color="#991b1b" />
+                          </linearGradient>
+                        </defs>
+                        <path
+                          d="M 15,10 L 15,60 C 15,95 50,110 50,110 C 50,110 85,95 85,60 L 85,10 L 65,10 L 65,55 C 65,75 50,85 50,85 C 50,85 35,75 35,55 L 35,10 Z"
+                          fill="url(#shieldGradTop)"
+                        />
+                      </svg>
+                    </div>
+                    <!-- Portrait Image -->
+                    <img
+                      src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=500&auto=format&fit=crop"
+                      alt="Dr. Ir. Muhammad Sofyan, ST., MT"
+                      class="relative z-10 h-64 object-cover object-top filter drop-shadow-md"
+                    />
+                  </div>
+                  <!-- Content Area -->
+                  <div
+                    class="p-6 text-center bg-white min-h-[110px] flex flex-col justify-center"
+                  >
+                    <h3
+                      class="text-base font-extrabold text-gray-900 leading-tight"
+                    >
+                      Dr. Ir. Muhammad Sofyan, ST., MT
+                    </h3>
+                    <p
+                      class="text-xs text-gray-500 font-medium mt-1 leading-snug"
+                    >
+                      Manager Bagian<br />Pengembangan Akademik
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- BOTTOM TIER: 2 DEPUTI MANAGERS (GRID 2 COLS) -->
+              <div
+                class="grid grid-cols-1 sm:grid-cols-2 gap-8 w-full max-w-2xl"
+              >
+                <!-- Card 1: Dr. Ir. Samsurizal, ST., MT., IPM -->
+                <div
+                  class="bg-white rounded-3xl border border-gray-100 shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
+                >
+                  <div
+                    class="relative h-64 bg-gradient-to-b from-gray-50 to-gray-100 flex items-end justify-center overflow-hidden pt-4"
+                  >
+                    <div
+                      class="absolute inset-0 flex items-center justify-center p-2 opacity-95"
+                    >
+                      <svg
+                        viewBox="0 0 100 120"
+                        class="h-52 w-auto text-red-700 shrink-0"
+                      >
+                        <path
+                          d="M 15,10 L 15,60 C 15,95 50,110 50,110 C 50,110 85,95 85,60 L 85,10 L 65,10 L 65,55 C 65,75 50,85 50,85 C 50,85 35,75 35,55 L 35,10 Z"
+                          fill="url(#shieldGradTop)"
+                        />
+                      </svg>
+                    </div>
+                    <img
+                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop"
+                      alt="Dr. Ir. Samsurizal, ST., MT., IPM"
+                      class="relative z-10 h-56 object-cover object-top filter drop-shadow-md"
+                    />
+                  </div>
+                  <div
+                    class="p-5 text-center bg-white min-h-[115px] flex flex-col justify-center"
+                  >
+                    <h4
+                      class="text-sm font-extrabold text-gray-900 leading-tight"
+                    >
+                      Dr. Ir. Samsurizal, ST., MT., IPM
+                    </h4>
+                    <p
+                      class="text-xs text-gray-500 font-medium mt-1 leading-snug"
+                    >
+                      Deputi Manager<br />Pengembangan Kurikulum
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Card 2: Dody, S.Kom., M.Kom -->
+                <div
+                  class="bg-white rounded-3xl border border-gray-100 shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
+                >
+                  <div
+                    class="relative h-64 bg-gradient-to-b from-gray-50 to-gray-100 flex items-end justify-center overflow-hidden pt-4"
+                  >
+                    <div
+                      class="absolute inset-0 flex items-center justify-center p-2 opacity-95"
+                    >
+                      <svg
+                        viewBox="0 0 100 120"
+                        class="h-52 w-auto text-red-700 shrink-0"
+                      >
+                        <path
+                          d="M 15,10 L 15,60 C 15,95 50,110 50,110 C 50,110 85,95 85,60 L 85,10 L 65,10 L 65,55 C 65,75 50,85 50,85 C 50,85 35,75 35,55 L 35,10 Z"
+                          fill="url(#shieldGradTop)"
+                        />
+                      </svg>
+                    </div>
+                    <img
+                      src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop"
+                      alt="Dody, S.Kom., M.Kom"
+                      class="relative z-10 h-56 object-cover object-top filter drop-shadow-md"
+                    />
+                  </div>
+                  <div
+                    class="p-5 text-center bg-white min-h-[115px] flex flex-col justify-center"
+                  >
+                    <h4
+                      class="text-sm font-extrabold text-gray-900 leading-tight"
+                    >
+                      Dody, S.Kom., M.Kom
+                    </h4>
+                    <p
+                      class="text-xs text-gray-500 font-medium mt-1 leading-snug"
+                    >
+                      Deputi Manager<br />Sistem Pembelajaran
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- LINK KE REPOSITORI DOKUMEN & PANDUAN -->
+      <section class="py-16 bg-teal-50/50 border-y border-teal-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <span
+            class="text-xs font-bold uppercase tracking-wider text-brand-blue bg-white px-3 py-1 rounded-full border border-teal-100 mb-4 inline-block"
+            >Pedoman & Regulasi</span
+          >
+          <h2 class="text-3xl font-bold text-brand-dark mb-4">
+            Akses Dokumen Kurikulum & Panduan Akademik
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto mb-8 text-base">
+            Unduh berkas kurikulum, petunjuk teknis MBKM, dokumen umum, serta
+            pedoman akademik lengkap secara langsung.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a
+              href="dokumen.html"
+              class="inline-flex items-center px-8 py-3.5 bg-brand-blue text-white font-bold rounded-xl hover:bg-brand-dark transition-all shadow-md hover:shadow-lg"
+            >
+              <svg
+                class="w-5 h-5 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                ></path>
+              </svg>
+              Buka Repositori Dokumen
+            </a>
+            <a
+              href="panduan.html"
+              class="inline-flex items-center px-8 py-3.5 bg-white text-brand-blue border-2 border-brand-blue font-bold rounded-xl hover:bg-teal-50 transition-all shadow-xs"
+            >
+              <svg
+                class="w-5 h-5 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                ></path>
+              </svg>
+              Panduan Akademik
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ALUR PENGAJUAN KURIKULUM -->
+      <section class="py-16 md:py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-brand-dark">
+              Alur Pengajuan Kurikulum Baru
+            </h2>
+            <p class="text-gray-500 mt-3">
+              Prosedur baku bagi Program Studi untuk mengusulkan perubahan
+              kurikulum.
+            </p>
+          </div>
+
+          <!-- Vertical Timeline -->
+          <div
+            class="border-l-2 border-gray-200 ml-6 md:ml-12 pl-8 md:pl-12 space-y-12 relative"
+          >
+            <div class="relative">
+              <span
+                class="absolute -left-[51px] md:-left-[67px] bg-brand-blue text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg ring-4 ring-white shadow-sm"
+                >1</span
+              >
+              <div
+                class="bg-gray-50 border border-gray-200 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow"
+              >
+                <h3 class="text-xl font-bold text-brand-dark mb-2">
+                  Penyusunan Draf (Prodi)
+                </h3>
+                <p class="text-gray-600">
+                  Program studi melakukan evaluasi kurikulum sebelumnya dan
+                  menyusun draf kurikulum baru yang melibatkan stakeholder
+                  internal dan eksternal, industri, serta alumni.
+                </p>
+              </div>
+            </div>
+
+            <div class="relative">
+              <span
+                class="absolute -left-[51px] md:-left-[67px] bg-brand-yellow text-brand-dark w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg ring-4 ring-white shadow-sm"
+                >2</span
+              >
+              <div
+                class="bg-gray-50 border border-gray-200 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow"
+              >
+                <h3 class="text-xl font-bold text-brand-dark mb-2">
+                  Reviu Bagian Pengembangan Akademik
+                </h3>
+                <p class="text-gray-600">
+                  Tim Bagian Pengembangan Akademik mengecek kesesuaian draf
+                  dengan kriteria acuan SN-Dikti dan kriteria akreditasi OBE.
+                </p>
+              </div>
+            </div>
+
+            <div class="relative">
+              <span
+                class="absolute -left-[51px] md:-left-[67px] bg-brand-blue text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg ring-4 ring-white shadow-sm"
+                >3</span
+              >
+              <div
+                class="bg-gray-50 border border-gray-200 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow"
+              >
+                <h3 class="text-xl font-bold text-brand-dark mb-2">
+                  Persetujuan Senat & SK Rektor
+                </h3>
+                <p class="text-gray-600">
+                  Pengesahan dokumen kurikulum oleh Senat Akademik IT-PLN dan
+                  penerbitan SK Rektor sebagai legalitas berlakunya kurikulum
+                  baru.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 4. FOOTER -->
+    <footer class="bg-[#0e5a6a] text-white pt-14 pb-0 mt-auto relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
+          <!-- Column 1: Identity -->
+          <div class="md:col-span-5 flex flex-col space-y-4">
+            <div class="flex items-center gap-3">
+              <img
+                src="assets/img/LOGO_IT_PLN.png"
+                alt="Logo IT-PLN"
+                class="h-10 w-auto bg-white p-1 rounded shadow-sm"
+              />
+              <span
+                class="font-extrabold text-xl text-white tracking-tight leading-tight"
+              >
+                BPAK – ITPLN
+              </span>
+            </div>
+            <p class="text-sm text-teal-100/90 leading-relaxed font-medium">
+              Bagian Pengembangan Akademik<br />
+              Lantai Mezzanine Lobi Selatan
+            </p>
+          </div>
+
+          <!-- Column 2: Menu Utama -->
+          <div class="md:col-span-3 flex flex-col space-y-4">
+            <h4 class="text-white text-lg font-bold">Menu Utama</h4>
+            <div
+              class="flex flex-col space-y-2.5 text-sm text-teal-100/90 font-medium"
+            >
+              <a
+                href="dokumen.html"
+                class="hover:text-yellow-300 transition-colors flex items-center gap-1.5"
+              >
+                <span class="text-yellow-400 font-bold">›</span> Dokumen
+              </a>
+              <a
+                href="index.html"
+                class="hover:text-yellow-300 transition-colors flex items-center gap-1.5"
+              >
+                <span class="text-yellow-400 font-bold">›</span> Profil
+              </a>
+              <a
+                href="informasi.html"
+                class="hover:text-yellow-300 transition-colors flex items-center gap-1.5"
+              >
+                <span class="text-yellow-400 font-bold">›</span> Pengumuman &
+                Berita
+              </a>
+              <a
+                href="panduan.html"
+                class="hover:text-yellow-300 transition-colors flex items-center gap-1.5"
+              >
+                <span class="text-yellow-400 font-bold">›</span> Panduan
+                Akademik
+              </a>
+              <a
+                href="faq.html"
+                class="hover:text-yellow-300 transition-colors flex items-center gap-1.5"
+              >
+                <span class="text-yellow-400 font-bold">›</span> FAQ & Layanan
+              </a>
+            </div>
+          </div>
+
+          <!-- Column 3: Kontak -->
+          <div class="md:col-span-4 flex flex-col space-y-4">
+            <h4 class="text-white text-lg font-bold">Kontak Layanan</h4>
+            <div class="space-y-3 text-sm text-teal-100/90 font-medium">
+              <div class="flex items-start gap-3">
+                <svg
+                  class="w-5 h-5 text-yellow-400 shrink-0 mt-0.5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                  ></path>
+                </svg>
+                <span class="leading-snug"
+                  >Menara PLN, Jl. Lkr. Luar Barat, Cengkareng, Jakarta Barat
+                  11750</span
+                >
+              </div>
+              <div class="flex items-center gap-3">
+                <svg
+                  class="w-5 h-5 text-yellow-400 shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  ></path>
+                </svg>
+                <a
+                  href="mailto:bpak@itpln.ac.id"
+                  class="hover:text-yellow-300 transition-colors"
+                  >bpak@itpln.ac.id</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright Bar -->
+      <div
+        class="bg-[#083844] py-4 text-center text-xs text-teal-200/80 font-medium border-t border-teal-800/50"
+      >
+        <p>
+          © 2026 Bagian Pengembangan Akademik IT-PLN. Hak Cipta Dilindungi
+          Undang-Undang.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      const btn = document.getElementById("mobileMenuBtn");
+      const menu = document.getElementById("mobileMenu");
+      if (btn && menu) {
+        btn.addEventListener("click", () => menu.classList.toggle("hidden"));
+      }
+    </script>
+  </body>
+</html>
